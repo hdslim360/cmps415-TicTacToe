@@ -12,7 +12,17 @@ public class TicTacToeView {
 		}
 	}
 
-	public void display
+	public void displayXWinner() {
+		System.out.println("X is the winner");
+	}
+	
+	public void displayYWinner() {
+		System.out.println("Y is the winner");
+	}
+	
+	public void displayDraw() {
+		System.out.println("It's a draw");
+	}
 
 
 
