@@ -1,3 +1,4 @@
+import java.util.scanner;
 
 public class TicTacToeMain {
 
@@ -9,5 +10,6 @@ public class TicTacToeMain {
 		TicTacToeModel model = new TicTacToeModel();
 		PlayerController controller = new PlayerController();
 		controller.playerOneMove(model, view);
+		
 	}
 }
