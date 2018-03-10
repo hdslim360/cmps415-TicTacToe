@@ -11,6 +11,11 @@ public class TicTacToeView {
 			System.out.println("");
 		}
 	}
+
+	public void display
+
+
+
 }
 	
 
