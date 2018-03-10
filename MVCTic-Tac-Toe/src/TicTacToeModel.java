@@ -32,7 +32,7 @@ public class TicTacToeModel {
          //Check to see if the sum of that row was 3 or -3, a win...
         
          }
-	  }
+	  
 		return retval;
 	}
 
@@ -77,7 +77,7 @@ public class TicTacToeModel {
 	}
 
 	public static boolean draw (int [][] matrix){
-		boolean retval = false;
+		boolean retVal = false;
 		//Check for cat game
       boolean foundSpace = false;
       for( int row = 0; row < matrix.length; row++ ){
