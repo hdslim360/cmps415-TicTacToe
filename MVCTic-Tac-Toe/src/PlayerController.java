@@ -12,14 +12,14 @@ public class PlayerController {
 		return 2;
 	}
 
-	public static void CheckWin(){
-		 if(model.horizWin() == 4 ){
-            view.x
-         } else if (horizWin() == -4 ) {
-			view.o
-		 } else if (model.draw == true){
-		 	view.tiedGame();
-		 } else {
-			
+	public static void CheckWinX(TicTacToeModel model,TicTacToeView view){
+		 if(model.checkWinX() == true){
+			 view.diplayXWinner();
 		 }
+	}
+
+	public static void CheckWinO(TicTacToeModel model,TicTacToeView view){
+		if(model.CheckWinO() == true){
+			view.diplayYWinner()
+		}
 	}

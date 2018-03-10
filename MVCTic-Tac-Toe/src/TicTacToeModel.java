@@ -8,7 +8,7 @@ public class TicTacToeModel {
 	
 	public TicTacToeModel(){
 		X = 1;
-		O = 2;
+		O = -1;
 		winner = false;
 	}
 	
@@ -50,11 +50,30 @@ public class TicTacToeModel {
 	  return retval;
 	}
 
-	public static int diagWin (int [][] matrix){
-		int retval = 0;
-		//Check for diagonal win
-		retval = matrix[0][0] + matrix[1][1] + matrix[2][2] + matrix[3][3]
-	  return retval;
+	public static boolean diagWinX (int [][] matrix){
+		boolean retVal = false;
+		
+		if(matrix[0][0] + matrix[1][1] + matrix[2][2] + matrix[3][3]) == 4){
+        
+         retVal = true;
+      } else if ( (matrix[0][3] + matrix[1][2] + matrix[2][1] + matrix[3][0]) == 4 ) {
+         
+         retVal = true;
+	  }
+      return retVal;
+	}
+
+	public static boolean diagWinO (int [][] matrix){
+		boolean retVal = false;
+		
+		if( (matrix[0][0] + matrix[1][1] + matrix[2][2]) + matrix[3][3] == -4 ){
+         
+         retVal = true;
+      } else if ( (matrix[0][3] + matrix[1][3] + matrix[2][1] + matrix[3][0]) == -4 ) {
+         
+         retVal = true;
+	  }
+      return retVal;
 	}
 
 	public static boolean draw (int [][] matrix){
