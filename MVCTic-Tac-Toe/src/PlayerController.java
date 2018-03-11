@@ -1,9 +1,9 @@
-
+import java.util.Scanner;
 
 
 public class PlayerController {
 	
-
+Scanner input = new Scanner(System.in);
 
 
 	public int playerOneMove(TicTacToeModel model,TicTacToeView view ) {//We probably can get rid of this method
@@ -22,7 +22,11 @@ public class PlayerController {
 			 view.displayXWinner();
 		 }
 		 else {
-			 view.playerXMove();
+			 view.playerXMoveRow();
+			 int row = input.nextInt();
+	         view.playerXMoveColumn();
+	         int col = input.nextInt();
+	         //Pass Input into model and validate input
 		 }
 	}
 
@@ -31,7 +35,11 @@ public class PlayerController {
 			view.displayOWinner();			
 		}
 		else {
-			view.playerOMove();
+			view.playerOMoveRow();
+		    int row = input.nextInt();
+		    view.playerOMoveCol();
+		    int col = input.nextInt();
+		    //Pass Input into model and validate input
 		}
 	}
 

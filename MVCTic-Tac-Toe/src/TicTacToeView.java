@@ -24,13 +24,23 @@ public class TicTacToeView {
 		System.out.println("It's a draw");
 	}
 	
-	public void playerXMove() {
+	public void playerXMoveRow() {
 		System.out.println("Player X, it's your turn");
+		System.out.print(" enter row: ");
 	}
 	
-	public void playerOMove() {
-		System.out.println("Player O, it's your turn");
+	public void playerXMoveColumn() {
+		System.out.println("Player X Enter a column");
 	}
+	
+	public void playerOMoveRow() {
+		System.out.println("Player O, it's your turn");
+		System.out.print(" enter row: ");
+	}
+	
+	public void playerOMoveCol() {
+		System.out.println("Player O Enter a column");
+		}
 
 }
 	
