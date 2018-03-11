@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 package src;
 
@@ -6,15 +5,6 @@ public class PlayerController {
 	
 	TicTacToeView view = new TicTacToeView();
 	TicTacToeModel model = new TicTacToeModel();
-=======
-import java.util.Scanner;
-
-
-public class PlayerController {
-	
-Scanner input = new Scanner(System.in);
-
->>>>>>> Shaw415
 
 	public int playerOneMove(TicTacToeModel model,TicTacToeView view ) {//We probably can get rid of this method
 		
