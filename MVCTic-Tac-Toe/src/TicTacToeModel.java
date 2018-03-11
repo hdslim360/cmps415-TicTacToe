@@ -60,9 +60,9 @@ public class TicTacToeModel {
 			retVal = true;}
 			else if((matrix[0][3] + matrix[1][2] + matrix[2][1] + matrix[3][0]) == 4 ) {
          retVal = true;
-	  }else{
-      return retVal;
 	  }
+      return retVal;
+	  
 	}
 
 	public static boolean diagWinO (int [][] matrix){
