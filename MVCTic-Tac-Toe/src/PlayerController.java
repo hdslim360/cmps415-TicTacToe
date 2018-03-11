@@ -3,6 +3,9 @@
 
 public class PlayerController {
 	
+
+
+
 	public int playerOneMove(TicTacToeModel model,TicTacToeView view ) {
 		
 		view.displayScreen(model);
@@ -14,14 +17,27 @@ public class PlayerController {
 		return 2;
 	}
 
-	public static void CheckWinX(TicTacToeModel model,TicTacToeView view){
+	public void CheckWinX(TicTacToeModel model,TicTacToeView view){
 		 if(model.checkWinX() == true){
 			 view.diplayXWinner();
 		 }
 	}
 
-	public static void CheckWinO(TicTacToeModel model,TicTacToeView view){
+	public void CheckWinO(TicTacToeModel model,TicTacToeView view){
 		if(model.CheckWinO() == true){
-			view.diplayYWinner()
+			view.diplayYWinner();
+
 		}
 	}
+
+	public void gameRunner(){
+		boolean runGame = true;
+
+		while (runGame){
+			
+		}
+
+	}
+
+
+}

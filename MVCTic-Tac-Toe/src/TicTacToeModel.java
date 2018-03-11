@@ -53,14 +53,13 @@ public class TicTacToeModel {
 	public static boolean diagWinX (int [][] matrix){
 		boolean retVal = false;
 		
-		if(matrix[0][0] + matrix[1][1] + matrix[2][2] + matrix[3][3]) == 4){
-        
+		if((matrix[0][0] + matrix[1][1] + matrix[2][2] + matrix[3][3]) == 4){
+			retVal = true;}
+			else if((matrix[0][3] + matrix[1][2] + matrix[2][1] + matrix[3][0]) == 4 ) {
          retVal = true;
-      } else if ( (matrix[0][3] + matrix[1][2] + matrix[2][1] + matrix[3][0]) == 4 ) {
-         
-         retVal = true;
-	  }
+	  }else{
       return retVal;
+	  }
 	}
 
 	public static boolean diagWinO (int [][] matrix){
@@ -95,8 +94,8 @@ public class TicTacToeModel {
 
 
      
-	}
+}
 
 	
-}
+
 //TODO finish logic
