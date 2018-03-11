@@ -19,13 +19,13 @@ public class PlayerController {
 
 	public void CheckWinX(TicTacToeModel model,TicTacToeView view){
 		 if(model.checkWinX() == true){
-			 view.diplayXWinner();
+			 view.displayXWinner();
 		 }
 	}
 
 	public void CheckWinO(TicTacToeModel model,TicTacToeView view){
 		if(model.CheckWinO() == true){
-			view.diplayYWinner();
+			view.displayOWinner();
 
 		}
 	}

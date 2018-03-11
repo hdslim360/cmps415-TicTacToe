@@ -16,7 +16,7 @@ public class TicTacToeView {
 		System.out.println("X is the winner");
 	}
 	
-	public void displayYWinner() {
+	public void displayOWinner() {
 		System.out.println("Y is the winner");
 	}
 	
