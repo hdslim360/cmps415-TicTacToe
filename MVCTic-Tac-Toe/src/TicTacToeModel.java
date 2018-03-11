@@ -21,7 +21,41 @@ public class TicTacToeModel {
 		System.out.println("so far so good");
 		return 1;
 	}
+	public boolean checkWinX() {//this checks if X is the winner. I is run after 3+ turns
+		boolean winner = false;
+		int horizWin;
+		int vertWin;
+		boolean diagWin;
+		
+		if((horizWin = horizWin(board)) == 4) {//return true if x won
+			winner = true;
+		}
+		else if((vertWin = vertWin(board)) == 4) {
+			winner = true;
+		}
+		else if((diagWin = diagWinX(board)) == true) {
+			winner = true;
+		}
+		return winner;
+	}
 	
+	public boolean CheckWinO() {//this checks if O is the winner. I is run after 3+ turns
+		boolean winner = false;
+		int horizWin;
+		int vertWin;
+		boolean diagWin;
+		
+		if((horizWin = horizWin(board)) == -4) {//return true if x won
+			winner = true;
+		}
+		else if((vertWin = vertWin(board)) == -4) {
+			winner = true;
+		}
+		else if((diagWin = diagWinO(board)) == true) {
+			winner = true;
+		}
+		return winner;
+	}
 	
 	public static int horizWin( int [][] matrix ){
       //Variable holds the "result" of hasWon. True if a winner was found.
@@ -32,7 +66,7 @@ public class TicTacToeModel {
          for( int col = 0; col < matrix[0].length; col++ ){
             retval += matrix[row][col];
          }
-         //Check to see if the sum of that row was 3 or -3, a win...
+         //Check to see if the sum of that row was 4 or -4
         
          }
 	  
@@ -53,7 +87,7 @@ public class TicTacToeModel {
 	  return retval;
 	}
 
-	public static boolean diagWinX (int [][] matrix){
+	public static boolean diagWinX(int [][] matrix){
 		boolean retVal = false;
 		
 		if((matrix[0][0] + matrix[1][1] + matrix[2][2] + matrix[3][3]) == 4){
@@ -61,8 +95,12 @@ public class TicTacToeModel {
 			else if((matrix[0][3] + matrix[1][2] + matrix[2][1] + matrix[3][0]) == 4 ) {
          retVal = true;
 	  }
+<<<<<<< HEAD
       return retVal;
 	  
+=======
+		return retVal;
+>>>>>>> Shaw415
 	}
 
 	public static boolean diagWinO (int [][] matrix){
@@ -91,6 +129,7 @@ public class TicTacToeModel {
       if( foundSpace == false ){
          retVal = true;
       }
+	return foundSpace;
 	}
 	
 	

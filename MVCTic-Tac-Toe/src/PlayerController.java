@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 package src;
 
@@ -5,29 +6,50 @@ public class PlayerController {
 	
 	TicTacToeView view = new TicTacToeView();
 	TicTacToeModel model = new TicTacToeModel();
+=======
+import java.util.Scanner;
 
 
-	public int playerOneMove(TicTacToeModel model,TicTacToeView view ) {
+public class PlayerController {
+	
+Scanner input = new Scanner(System.in);
+
+>>>>>>> Shaw415
+
+	public int playerOneMove(TicTacToeModel model,TicTacToeView view ) {//We probably can get rid of this method
 		
 		view.displayScreen(model);
 		
 		return 1;
 	}
 	
-	public int playerTwoMove(TicTacToeModel model,TicTacToeView view ) {
+	public int playerTwoMove(TicTacToeModel model,TicTacToeView view ) {//We probably can get rid of this method
 		return 2;
 	}
 
 	public void CheckWinX(TicTacToeModel model,TicTacToeView view){
 		 if(model.checkWinX() == true){
-			 view.diplayXWinner();
+			 view.displayXWinner();
+		 }
+		 else {
+			 view.playerXMoveRow();
+			 int row = input.nextInt();
+	         view.playerXMoveColumn();
+	         int col = input.nextInt();
+	         //Pass Input into model and validate input
 		 }
 	}
 
 	public void CheckWinO(TicTacToeModel model,TicTacToeView view){
 		if(model.CheckWinO() == true){
-			view.diplayYWinner();
-
+			view.displayOWinner();			
+		}
+		else {
+			view.playerOMoveRow();
+		    int row = input.nextInt();
+		    view.playerOMoveCol();
+		    int col = input.nextInt();
+		    //Pass Input into model and validate input
 		}
 	}
 

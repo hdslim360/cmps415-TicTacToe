@@ -17,15 +17,31 @@ public class TicTacToeView {
 		System.out.println("X is the winner");
 	}
 	
-	public void displayYWinner() {
+	public void displayOWinner() {
 		System.out.println("Y is the winner");
 	}
 	
 	public void displayDraw() {
 		System.out.println("It's a draw");
 	}
-
-
+	
+	public void playerXMoveRow() {
+		System.out.println("Player X, it's your turn");
+		System.out.print(" enter row: ");
+	}
+	
+	public void playerXMoveColumn() {
+		System.out.println("Player X Enter a column");
+	}
+	
+	public void playerOMoveRow() {
+		System.out.println("Player O, it's your turn");
+		System.out.print(" enter row: ");
+	}
+	
+	public void playerOMoveCol() {
+		System.out.println("Player O Enter a column");
+		}
 
 }
 	
