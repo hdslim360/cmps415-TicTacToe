@@ -1,4 +1,7 @@
 
+package src;
+
+
 public class TicTacToeModel {
 	public int board [][] = new int [4][4];
 	public int X;
