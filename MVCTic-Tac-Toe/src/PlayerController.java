@@ -1,9 +1,10 @@
 
-
+package src;
 
 public class PlayerController {
 	
-
+	TicTacToeView view = new TicTacToeView();
+	TicTacToeModel model = new TicTacToeModel();
 
 
 	public int playerOneMove(TicTacToeModel model,TicTacToeView view ) {
@@ -34,7 +35,7 @@ public class PlayerController {
 		boolean runGame = true;
 
 		while (runGame){
-			
+
 		}
 
 	}
