@@ -23,8 +23,14 @@ public class TicTacToeView {
 	public void displayDraw() {
 		System.out.println("It's a draw");
 	}
-
-
+	
+	public void playerXMove() {
+		System.out.println("Player X, it's your turn");
+	}
+	
+	public void playerOMove() {
+		System.out.println("Player O, it's your turn");
+	}
 
 }
 	
