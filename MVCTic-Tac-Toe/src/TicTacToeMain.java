@@ -7,8 +7,8 @@ public class TicTacToeMain {
 		TicTacToeModel model = new TicTacToeModel();
 		//How I start all my java programs
 		System.out.println("Are you ready to rock!?!");
-		PlayerController controller = new PlayerController();
-		
+		PlayerController controller = new PlayerController(model, view);
+		controller.gameRunner();
 		
 	}
 }

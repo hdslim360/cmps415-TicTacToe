@@ -12,14 +12,16 @@ Scanner input = new Scanner(System.in);
 		this.view = view;
 	}
 
-	public int playerOneMove(model, view ) {//We probably can get rid of this method
+	
+
+	public int playerOneMove() {//We probably can get rid of this method
 		
 		view.displayScreen(model);
 		
 		return 1;
 	}
 	
-	public int playerTwoMove(TicTacToeModel model,TicTacToeView view ) {//We probably can get rid of this method
+	public int playerTwoMove() {//We probably can get rid of this method
 		return 2;
 	}
 
@@ -36,7 +38,7 @@ Scanner input = new Scanner(System.in);
 		 }
 	}
 
-	public void CheckWinO(model , view){
+	public void CheckWinO(){
 		if(model.CheckWinO() == true){
 			view.displayOWinner();			
 		}
@@ -50,11 +52,11 @@ Scanner input = new Scanner(System.in);
 		}
 	}
 
-	public void gameRunner(model, view){
+	public void gameRunner(){
 		boolean runGame = true;
 		model.newBoard();
 		while (runGame){
-			CheckWinO(model, view);
+			CheckWinO();
 		}
 
 	}
