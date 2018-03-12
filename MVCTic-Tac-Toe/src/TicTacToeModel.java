@@ -1,18 +1,25 @@
 
 public class TicTacToeModel {
 	public int board [][] = new int [4][4];
-	public int X;
-	public int O;
-	public boolean winner;
+	private int X = 1;
+	private int O = -1 ;
+	private boolean winner;
 	
 	
 	public TicTacToeModel(){
 		X = 1;
 		O = -1;
 		winner = false;
+
 	}
 	
-
+	public void newBoard(){
+		for(int row = 0; row <= 4; row++) {
+			for(int col = 0; col <=4; col++) {
+				board[row][col] = 0;
+			}
+		}
+	}
 
 	public int startTurn() {
 		System.out.println("so far so good");
@@ -24,13 +31,13 @@ public class TicTacToeModel {
 		int vertWin;
 		boolean diagWin;
 		
-		if((horizWin = horizWin(board)) == 4) {//return true if x won
+		if(horizWin() == 4) {//return true if x won
 			winner = true;
 		}
-		else if((vertWin = vertWin(board)) == 4) {
+		else if(vertWin() == 4) {
 			winner = true;
 		}
-		else if((diagWin = diagWinX(board)) == true) {
+		else if(diagWinX() == true) {
 			winner = true;
 		}
 		return winner;
@@ -38,30 +45,30 @@ public class TicTacToeModel {
 	
 	public boolean CheckWinO() {//this checks if O is the winner. I is run after 3+ turns
 		boolean winner = false;
-		int horizWin;
-		int vertWin;
-		boolean diagWin;
-		
-		if((horizWin = horizWin(board)) == -4) {//return true if x won
+		int horizontal = horizWin();
+		int vertical = vertWin();
+		boolean diag = diagWinO();
+
+		if(horizontal == -4){//return true if x won
 			winner = true;
 		}
-		else if((vertWin = vertWin(board)) == -4) {
+		else if(vertical==-4){
 			winner = true;
 		}
-		else if((diagWin = diagWinO(board)) == true) {
+		else if(diag == true) {
 			winner = true;
 		}
 		return winner;
 	}
 	
-	public static int horizWin( int [][] matrix ){
+	public int horizWin(){
       //Variable holds the "result" of hasWon. True if a winner was found.
       int retval = 0;
       //Check for horizontal win
-      for( int row = 0; row < matrix.length; row++ ){
+      for( int row = 0; row < board.length; row++ ){
          
-         for( int col = 0; col < matrix[0].length; col++ ){
-            retval += matrix[row][col];
+         for( int col = 0; col < board[0].length; col++ ){
+            retval += board[row][col];
          }
          //Check to see if the sum of that row was 4 or -4
         
@@ -70,13 +77,13 @@ public class TicTacToeModel {
 		return retval;
 	}
 
-	public static int vertWin( int [][] matrix){  
+	public int vertWin(){  
       //Check for vertical win
     	int retval = 0;
-		for( int col = 0; col < matrix[0].length; col++ ){
+		for( int col = 0; col < board[0].length; col++ ){
          
-        	for( int row = 0; row < matrix.length; row++ ){
-        	retval += matrix[row][col];
+        	for( int row = 0; row < board.length; row++ ){
+        	retval += board[row][col];
          }
          //Check to see if the sum of that column was 3 or -3, a win...
         
@@ -84,12 +91,12 @@ public class TicTacToeModel {
 	  return retval;
 	}
 
-	public static boolean diagWinX(int [][] matrix){
+	public boolean diagWinX(){
 		boolean retVal = false;
 		
-		if((matrix[0][0] + matrix[1][1] + matrix[2][2] + matrix[3][3]) == 4){
+		if((board[0][0] + board[1][1] + board[2][2] + board[3][3]) == 4){
 			retVal = true;}
-			else if((matrix[0][3] + matrix[1][2] + matrix[2][1] + matrix[3][0]) == 4 ) {
+			else if((board[0][3] + board[1][2] + board[2][1] + board[3][0]) == 4 ) {
          retVal = true;
 	  }else{
       return retVal;
@@ -97,26 +104,26 @@ public class TicTacToeModel {
 		return retVal;
 	}
 
-	public static boolean diagWinO (int [][] matrix){
+	public boolean diagWinO (){
 		boolean retVal = false;
 		
-		if( (matrix[0][0] + matrix[1][1] + matrix[2][2]) + matrix[3][3] == -4 ){
+		if( (board[0][0] + board[1][1] + board[2][2]) + board[3][3] == -4 ){
          
          retVal = true;
-      } else if ( (matrix[0][3] + matrix[1][3] + matrix[2][1] + matrix[3][0]) == -4 ) {
+      } else if ( (board[0][3] + board[1][3] + board[2][1] + board[3][0]) == -4 ) {
          
          retVal = true;
 	  }
       return retVal;
 	}
 
-	public static boolean draw (int [][] matrix){
+	public boolean draw (){
 		boolean retVal = false;
 		//Check for cat game
       boolean foundSpace = false;
-      for( int row = 0; row < matrix.length; row++ ){
-         for( int col = 0; col < matrix[0].length; col++ ){
-            if( matrix[row][col] == 0 ) 
+      for( int row = 0; row < board.length; row++ ){
+         for( int col = 0; col < board[0].length; col++ ){
+            if( board[row][col] == 0 ) 
                foundSpace = true;
          }
       }
@@ -126,7 +133,17 @@ public class TicTacToeModel {
 	return foundSpace;
 	}
 	
-	
+	public boolean inputMove(int row, int col){
+		boolean ableMove = false;
+		if (findSpot(row, col) == 0){
+			ableMove = true;
+		}
+		return ableMove;
+	}
+
+	public int findSpot(int row, int col){
+		return  board[row][col];
+	}
 
 
      
