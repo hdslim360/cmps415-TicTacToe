@@ -1,11 +1,11 @@
-
 package src;
+import java.util.Scanner;;
 
 public class PlayerController {
 	
 	TicTacToeView view = new TicTacToeView();
 	TicTacToeModel model = new TicTacToeModel();
-
+	Scanner input = new Scanner(System.in);
 	public int playerOneMove(TicTacToeModel model,TicTacToeView view ) {//We probably can get rid of this method
 		
 		view.displayScreen(model);
