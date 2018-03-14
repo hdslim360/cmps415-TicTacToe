@@ -96,9 +96,9 @@ public class PlayerController {
 				break;
 			}
 			
-			view.thankYou();
+			
 		} 
-
+		view.thankYou();
 	}
 
 
