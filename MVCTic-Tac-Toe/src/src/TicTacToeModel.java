@@ -1,7 +1,7 @@
 
 package src;
 
-
+//The model. Where the magic happens
 public class TicTacToeModel {
 	public int board [][] = new int [4][4];
 	private int X = 1;
@@ -23,8 +23,8 @@ public class TicTacToeModel {
 			}
 		}
 	}
-	
-	public boolean checkWin(int play) {//this checks if there is winner.
+	//This method calls the other methods that checks if a player has one the game
+	public boolean checkWin(int play) {
 		
 		int horizontal = horizWin();
 		int vertical = vertWin();
@@ -58,6 +58,7 @@ public class TicTacToeModel {
 		return winner;
 	}
 	
+	// these 5 methods should look vaguely familiar :) 
 	public int horizWin(){
       //Variable holds the "result" of hasWon. True if a winner was found.
       int retval = 0;
@@ -73,7 +74,6 @@ public class TicTacToeModel {
             	return retval;
             }
          }
-         //Check to see if the sum of that row was 4 or -4
         
          }
 	  
@@ -81,7 +81,6 @@ public class TicTacToeModel {
 	}
 
 	public int vertWin(){  
-      //Check for vertical win
     	int retval = 0;
 		for( int col = 0; col < board[0].length; col++ ){
          
@@ -140,6 +139,7 @@ public class TicTacToeModel {
 	return retVal;
 	}
 	
+	//Input moves. Pretty straight forward
 	public boolean inputMove(int row, int col){
 		boolean ableMove = false;
 		if (findSpot(row-1, col-1) == 0){

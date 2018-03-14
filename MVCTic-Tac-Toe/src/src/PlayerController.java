@@ -30,7 +30,9 @@ public class PlayerController {
 		return in.nextInt();
 		
 	}
-	
+	//xMove and oMove are to controller methods that call methods in the view to display data or methods in the model.  
+	//The only logic in xMove and oMove are if statements
+	//xMove calls methods for player X to move 
 	private void xMove() {
 		int row;
 		int col;
@@ -54,7 +56,7 @@ public class PlayerController {
 			}
 		}while(tryagain);
 	}
-	
+	//oMove calls methods for player O to move
 	private void oMove() {
 		int row;
 		int col;
@@ -78,7 +80,7 @@ public class PlayerController {
 			}
 		}while(tryagain);
 	}
-
+    //the gameRunner well, runs the game
 	public void gameRunner(){
 		boolean runGame = true;
 		
