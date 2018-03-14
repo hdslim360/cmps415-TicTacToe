@@ -13,22 +13,6 @@ public class PlayerController {
 		this.model = model;
 	}
 	
-	
-	
-	
-	public int playerOneMove() {//We probably can get rid of this method
-		
-		view.displayScreen();
-		
-		return 1;
-	}
-	
-	public int playerTwoMove() {//We probably can get rid of this method
-		return 2;
-	}
-
-	
-
 	public boolean CheckWin(){
 		if (model.checkWin(X) == true ) {
 			view.displayXWinner();
@@ -65,8 +49,8 @@ public class PlayerController {
 			}
 		
 			if (CheckWin()) {
-				view.displayOWinner();
 				winner = true;
+				tryagain = false;
 			}
 		}while(tryagain);
 	}
@@ -89,8 +73,8 @@ public class PlayerController {
 			}
 		
 			if (CheckWin()) {
-				view.displayOWinner();
 				winner = true;
+				tryagain = false;
 			}
 		}while(tryagain);
 	}

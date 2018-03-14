@@ -23,18 +23,13 @@ public class TicTacToeModel {
 			}
 		}
 	}
-
-	public int startTurn() {
-		System.out.println("so far so good");
-		return 1;
-	}
 	
-	public boolean checkWin(int play) {//this checks if there is winner. I is run after 3+ turns
+	public boolean checkWin(int play) {//this checks if there is winner.
 		
 		int horizontal = horizWin();
 		int vertical = vertWin();
 		boolean diag = diagWinO();
-
+		winner = false;
 		if (play == X) {
 			if(horizontal == 4) {
 				winner = true;
@@ -45,8 +40,6 @@ public class TicTacToeModel {
 			if (diag) {
 				winner = true;
 			}
-		}else {
-			winner = false;
 		}
 		
 		if (play == O) {
@@ -59,8 +52,6 @@ public class TicTacToeModel {
 			if (diag) {
 				winner = true;
 			}
-		}else {
-			winner = false;
 		}
 		return winner;
 	}
@@ -73,6 +64,12 @@ public class TicTacToeModel {
          
          for( int col = 0; col < board[0].length; col++ ){
             retval += board[row][col];
+            if(retval == 4) {
+            	return retval;
+            }
+            if(retval == -4) {
+            	return retval;
+            }
          }
          //Check to see if the sum of that row was 4 or -4
         
@@ -88,6 +85,12 @@ public class TicTacToeModel {
          
         	for( int row = 0; row < board.length; row++ ){
         	retval += board[row][col];
+        	 if(retval == 4) {
+             	return retval;
+             }
+             if(retval == -4) {
+             	return retval;
+             }
          }
          //Check to see if the sum of that column was 3 or -3, a win...
         
@@ -154,7 +157,3 @@ public class TicTacToeModel {
 
      
 }
-
-	
-
-//TODO finish logic
