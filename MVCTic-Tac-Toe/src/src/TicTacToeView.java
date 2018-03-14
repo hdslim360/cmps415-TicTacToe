@@ -4,7 +4,13 @@ public class TicTacToeView {
 	
 	private TicTacToeModel model;
 	
-	public void displayScreen(TicTacToeModel model) {
+	public TicTacToeView(TicTacToeModel model) {
+		this.model = model;
+	}
+	
+	
+	
+	public void displayScreen() {
 		for(int row = 0; row < model.board.length; row++) {
 			for(int col = 0; col < model.board.length; col++) {
 				System.out.print(model.findSpot(row, col));
@@ -42,6 +48,14 @@ public class TicTacToeView {
 	public void playerOMoveCol() {
 		System.out.println("Player O Enter a column");
 		}
+
+	public void thankYou() {
+		System.out.println("Thank You for playing!!!");
+	}
+	
+	public void moveAgain() {
+		System.out.println("That is not a valid move try again");
+	}
 
 }
 	

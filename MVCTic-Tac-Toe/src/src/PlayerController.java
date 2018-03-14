@@ -2,53 +2,115 @@ package src;
 import java.util.Scanner;;
 
 public class PlayerController {
+	private TicTacToeView view;
+	private TicTacToeModel model;
+	private final int X = 1;
+	private final int O = -1;
+	private boolean winner;
 	
-	TicTacToeView view = new TicTacToeView();
-	TicTacToeModel model = new TicTacToeModel();
-	Scanner input = new Scanner(System.in);
-	public int playerOneMove(TicTacToeModel model,TicTacToeView view ) {//We probably can get rid of this method
+	public PlayerController(TicTacToeView view, TicTacToeModel model) {
+		this.view = view;
+		this.model = model;
+	}
+	
+	
+	
+	
+	public int playerOneMove() {//We probably can get rid of this method
 		
 		view.displayScreen(model);
 		
 		return 1;
 	}
 	
-	public int playerTwoMove(TicTacToeModel model,TicTacToeView view ) {//We probably can get rid of this method
+	public int playerTwoMove() {//We probably can get rid of this method
 		return 2;
 	}
 
-	public void CheckWinX(TicTacToeModel model,TicTacToeView view){
-		 if(model.checkWinX() == true){
-			 view.displayXWinner();
-		 }
-		 else {
-			 view.playerXMoveRow();
-			 int row = input.nextInt();
-	         view.playerXMoveColumn();
-	         int col = input.nextInt();
-	         //Pass Input into model and validate input
-		 }
-	}
+	
 
-	public void CheckWinO(TicTacToeModel model,TicTacToeView view){
-		if(model.CheckWinO() == true){
-			view.displayOWinner();			
+	public boolean CheckWin(){
+		if (model.checkWin(X) == true ) {
+			view.displayXWinner();
+			return true;
+		}if (model.checkWin(O)==true) {
+			view.displayOWinner();
+			return true;
+		}else {
+			return false;
 		}
-		else {
+	}
+	
+	private int input() {
+		Scanner in = new Scanner(System.in);
+		return in.nextInt();
+	}
+	
+	private void xMove() {
+		int row;
+		int col;
+		boolean tryagain = true;
+		do {
+			view.playerXMoveRow();
+			row = input();
+			view.playerXMoveColumn();
+			col = input();
+			if (model.inputMove(row, col)) {
+				model.placeBoard(row, col, O);
+				tryagain = false;
+			}else {
+				view.moveAgain();
+				view.displayScreen();
+			}
+		
+			if (CheckWin()) {
+				view.displayOWinner();
+				winner = true;
+			}
+		}while(tryagain);
+	}
+	
+	private void oMove() {
+		int row;
+		int col;
+		boolean tryagain = true;
+		do {
 			view.playerOMoveRow();
-		    int row = input.nextInt();
-		    view.playerOMoveCol();
-		    int col = input.nextInt();
-		    //Pass Input into model and validate input
-		}
+			row = input();
+			view.playerOMoveCol();
+			col = input();
+			if (model.inputMove(row, col)) {
+				model.placeBoard(row, col, O);
+				tryagain = false;
+			}else {
+				view.moveAgain();
+				view.displayScreen();
+			}
+		
+			if (CheckWin()) {
+				view.displayOWinner();
+				winner = true;
+			}
+		}while(tryagain);
 	}
 
 	public void gameRunner(){
 		boolean runGame = true;
-
+		
 		while (runGame){
+			xMove();
+			if (winner) {
+				runGame= false;
+				break;
+			}
+			oMove();
+			if(winner) {
+				runGame = false;
+				break;
+			}
 			
-		}
+			view.thankYou();
+		} 
 
 	}
 

@@ -28,38 +28,39 @@ public class TicTacToeModel {
 		System.out.println("so far so good");
 		return 1;
 	}
-	public boolean checkWinX() {//this checks if X is the winner. I is run after 3+ turns
-		boolean winner = false;
-		int horizWin;
-		int vertWin;
-		boolean diagWin;
-		
-		if(horizWin() == 4) {//return true if x won
-			winner = true;
-		}
-		else if(vertWin() == 4) {
-			winner = true;
-		}
-		else if(diagWinX() == true) {
-			winner = true;
-		}
-		return winner;
-	}
 	
-	public boolean CheckWinO() {//this checks if O is the winner. I is run after 3+ turns
-		boolean winner = false;
+	public boolean checkWin(int play) {//this checks if there is winner. I is run after 3+ turns
+		
 		int horizontal = horizWin();
 		int vertical = vertWin();
 		boolean diag = diagWinO();
 
-		if(horizontal == -4){//return true if x won
-			winner = true;
+		if (play == 1) {
+			if(horizontal == 4) {
+				winner = true;
+			}
+			if(vertical == 4) {
+				winner = true;
+			}
+			if (diag) {
+				winner = true;
+			}
+		}else {
+			winner = false;
 		}
-		else if(vertical==-4){
-			winner = true;
-		}
-		else if(diag == true) {
-			winner = true;
+		
+		if (play == -1) {
+			if(horizontal == -4) {
+				winner = true;
+			}
+			if(vertical == -4) {
+				winner = true;
+			}
+			if (diag) {
+				winner = true;
+			}
+		}else {
+			winner = false;
 		}
 		return winner;
 	}
@@ -131,7 +132,7 @@ public class TicTacToeModel {
       if( foundSpace == false ){
          retVal = true;
       }
-	return foundSpace;
+	return retVal;
 	}
 	
 	public boolean inputMove(int row, int col){
@@ -145,6 +146,10 @@ public class TicTacToeModel {
 	public int findSpot(int row, int col){
 		return  board[row][col];
 	}
+	
+	public void placeBoard(int row, int col, int player) {
+		board[row][col] = player;
+		}
 
 
      
