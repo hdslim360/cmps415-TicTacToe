@@ -42,11 +42,9 @@ public class PlayerController {
 	}
 	
 	private int input() {
-		int nextInt;
 		Scanner in = new Scanner(System.in);
-		nextInt=in.nextInt();
-		in.close();
-		return nextInt;
+		return in.nextInt();
+		
 	}
 	
 	private void xMove() {
