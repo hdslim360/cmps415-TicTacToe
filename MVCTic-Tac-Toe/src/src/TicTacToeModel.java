@@ -28,7 +28,9 @@ public class TicTacToeModel {
 		
 		int horizontal = horizWin();
 		int vertical = vertWin();
-		boolean diag = diagWinO();
+		boolean diagX = diagWinX();
+		boolean diagO = diagWinO();
+		
 		winner = false;
 		if (play == X) {
 			if(horizontal == 4) {
@@ -37,7 +39,7 @@ public class TicTacToeModel {
 			if(vertical == 4) {
 				winner = true;
 			}
-			if (diag) {
+			if (diagX) {
 				winner = true;
 			}
 		}
@@ -49,7 +51,7 @@ public class TicTacToeModel {
 			if(vertical == -4) {
 				winner = true;
 			}
-			if (diag) {
+			if (diagO) {
 				winner = true;
 			}
 		}
