@@ -35,7 +35,7 @@ public class TicTacToeModel {
 		int vertical = vertWin();
 		boolean diag = diagWinO();
 
-		if (play == 1) {
+		if (play == X) {
 			if(horizontal == 4) {
 				winner = true;
 			}
@@ -49,7 +49,7 @@ public class TicTacToeModel {
 			winner = false;
 		}
 		
-		if (play == -1) {
+		if (play == O) {
 			if(horizontal == -4) {
 				winner = true;
 			}
@@ -137,7 +137,7 @@ public class TicTacToeModel {
 	
 	public boolean inputMove(int row, int col){
 		boolean ableMove = false;
-		if (findSpot(row, col) == 0){
+		if (findSpot(row-1, col-1) == 0){
 			ableMove = true;
 		}
 		return ableMove;
@@ -148,7 +148,7 @@ public class TicTacToeModel {
 	}
 	
 	public void placeBoard(int row, int col, int player) {
-		board[row][col] = player;
+		board[row-1][col-1] = player;
 		}
 
 

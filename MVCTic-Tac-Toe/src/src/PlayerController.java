@@ -18,7 +18,7 @@ public class PlayerController {
 	
 	public int playerOneMove() {//We probably can get rid of this method
 		
-		view.displayScreen(model);
+		view.displayScreen();
 		
 		return 1;
 	}
@@ -42,8 +42,11 @@ public class PlayerController {
 	}
 	
 	private int input() {
+		int nextInt;
 		Scanner in = new Scanner(System.in);
-		return in.nextInt();
+		nextInt=in.nextInt();
+		in.close();
+		return nextInt;
 	}
 	
 	private void xMove() {
@@ -56,7 +59,7 @@ public class PlayerController {
 			view.playerXMoveColumn();
 			col = input();
 			if (model.inputMove(row, col)) {
-				model.placeBoard(row, col, O);
+				model.placeBoard(row, col, X);
 				tryagain = false;
 			}else {
 				view.moveAgain();
@@ -99,11 +102,13 @@ public class PlayerController {
 		
 		while (runGame){
 			xMove();
+			view.displayScreen();
 			if (winner) {
 				runGame= false;
 				break;
 			}
 			oMove();
+			view.displayScreen();
 			if(winner) {
 				runGame = false;
 				break;
